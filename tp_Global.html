@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tp_Global.css">
+    <title>Gestion des Clients</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4036/4036845.png">
+</head>
+<body>
+    <div class="theme-switcher">
+        <button class="theme-btn" id="light-btn"
+        onclick="document.querySelector('body').className='light-theme'">
+        </button>
+        <button class="theme-btn" id="dark-btn" 
+        onclick="document.querySelector('body').className='dark-theme'"
+        ></button>
+        <button class="theme-btn" id="blue-btn"
+        onclick="document.querySelector('body').className='blue-theme'"
+        ></button>
+        <button class="theme-btn" id="red-btn"
+        onclick="document.querySelector('body').className='red-theme'"
+        ></button>
+        <button class="theme-btn" id="yellow-btn"
+        onclick="document.querySelector('body').className='yellow-theme'"
+        ></button>
+    </div>
+    <header class="header">
+        <h1>Gestion Reservations</h1>
+        <p>Bienvenue dans notre système de gestion reservation</p>
+        <nav>
+            <ul>
+                <li><a id="showClients">Gestion des Clients</a></li>
+                <li><a id="showReservation">Réserver un ticket</a></li>
+                <li><a id="showTickets">Tickets réservés</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <!-- CRUD Clients Section -->
+        <div id="clients" class="section active">
+            <h2>Gestion des Clients</h2>
+            <form id="clientForm">
+                <div class="form-group">
+                    <label>Nom Complet:</label>
+                    <input type="text" id="nomComplet">
+                    <span class="Err" id="nomErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>CIN:</label>
+                    <input type="text" id="cin" >
+                    <span class="Err" id="cinErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>Etudiant:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="estEtudiant" value="oui" > Oui
+                        </label>
+                        <label>
+                            <input type="radio" name="estEtudiant" value="non" > Non
+                        </label>
+                    </div>
+                    <span class="Err" id="etuErr"></span>
+                </div>
+                <button type="submit" id="saveBtn">Ajouter</button>
+            </form>
+            <table id="clientsTable">
+                <thead>
+                    <tr>
+                        <th>Nom Complet</th>
+                        <th>CIN</th>
+                        <th>Etudiant</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clientTbody"></tbody>
+            </table>
+        </div>
+         <!-- Réservation Section -->
+         <div id="reservation" class="section">
+            <h2>Réserver un Ticket</h2>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label>Client:</label>
+                    <select id="clientSelect" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Ville de Destination:</label>
+                    <select id="destination" required>
+                        <option value="rabat">Rabat - 40 DH</option>
+                        <option value="mohammedia">Mohammedia - 20 DH</option>
+                        <option value="marrakech">Marrakech - 150 DH</option>
+                        <option value="tanger">Tanger - 290 DH</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Classe:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="classe" value="1" > 1ère classe
+                        </label>
+                        <label>
+                            <input type="radio" name="classe" value="2" > 2ème classe
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Etudiant:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="estEtudiantTicket" value="oui" > Oui
+                        </label>
+                        <label>
+                            <input type="radio" name="estEtudiantTicket" value="non" > Non
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Prix Total:</label>
+                    <span id="totalPrice">0 DH</span>
+                </div>
+                <button type="submit">Réserver</button>
+            </form>
+        </div>
+
+        <!-- Tickets Section -->
+        <div id="tickets" class="section">
+            <h2>Tickets Réservés</h2>
+            <table id="ticketsTable">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Etudiant</th>
+                        <th>Destination</th>
+                        <th>Classe</th>
+                        <th>Prix</th>
+                        <th>Date de Réservation</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 OFPPT. Tous droits réservés.</p>
+    </footer>
+    <script src="Sections.js"></script>
+    <script src="clients.js"></script>
+</body>
+</html>
