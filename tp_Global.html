@@ -109,18 +109,19 @@
                     <label>Etudiant:</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="estEtudiantTicket" value="oui" > Oui
+                            <input type="radio" name="estEtudiantTicket" value="oui" disabled> Oui
                         </label>
                         <label>
-                            <input type="radio" name="estEtudiantTicket" value="non" > Non
+                            <input type="radio" name="estEtudiantTicket" value="non" disabled> Non
                         </label>
+                        <span id="Etu"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Prix Total:</label>
                     <span id="totalPrice">0 DH</span>
                 </div>
-                <button type="submit">Réserver</button>
+                <button type="submit" id="Réserver">Réserver</button>
             </form>
         </div>
 
